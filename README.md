@@ -13,6 +13,6 @@ The Esp wakes up every hour -> requests a new view via http -> the server collec
 
 ## Project structure
 
-`/esp32`: files to build the esp data
-`/server`: all of the backend stuff where the veiws get requested and rendered
-`/server/assets`: some assets for building the views
+`/esp32`: files to build the esp data<br>
+`/server`: all of the backend stuff where the veiws get requested and rendered<br>
+`/server/assets`: some assets for building the views<br>

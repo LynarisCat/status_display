@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Response
 from PIL import Image
-from .convert import imgToByte
+from .modules.convert import imgToByte
+from .modules.misc import getLastMonths
 
 app = FastAPI()
 
@@ -20,13 +21,18 @@ def left(pixels: Image.core.PixelAccess):
 
     # create/cache data from notes (new file)
 
-    # get current months (month names, number of days, data form obsidian vault)
+    # get current months (month names, number of days)
+    months = getLastMonths()
+
+    # get data from obsidian valut (.md files)
 
     # construct datastructure from data + num of days
 
     # place day images (./assets) from data
 
     # place month names
+
+    pass
 
 
 def middle(pixels: Image.core.PixelAccess):
@@ -40,6 +46,8 @@ def right(pixels: Image.core.PixelAccess):
     # place temp
 
     # place wheather symbol (sun, cloud, rain, thunder)
+
+    pass
 
 
 

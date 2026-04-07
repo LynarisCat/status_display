@@ -1,13 +1,13 @@
 from PIL import Image
 
 
-def imgToByte(pix: Image.core.PixelAccess) -> bytearray:
+def imgToByte(pix: Image.core.PixelAccess, size: (int, int)) -> bytearray:
     by = bytearray()
     c = 0
     bit = ""
 
-    for y in range(im.size[1]):
-        for x in range(im.size[0]):
+    for y in range(size[1]):
+        for x in range(size[0]):
             
             if c >= 4:
                 c = 1
@@ -46,7 +46,7 @@ def imgToByte(pix: Image.core.PixelAccess) -> bytearray:
 if __name__ == "__main__":
 
     with Image.open("status-disp-idea.png") as im:
-        by = imgToByte(im.load())
+        by = imgToByte(im.load(), im.size)
 
     with open("status-disp-idea.bytes", "wb") as f:
         f.write(by)

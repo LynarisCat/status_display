@@ -13,16 +13,48 @@ class RawResponse(Response):
         return content
 
 
+
+# functions for graphics
+
+def left(pixels: Image.core.PixelAccess):
+    pass
+
+
+def middle(pixels: Image.core.PixelAccess):
+    pass
+
+
+def right(pixels: Image.core.PixelAccess):
+    pass
+
+
+
+
 @app.get("/status")
 async def status():
     # ---------------------- Construct image
+    img = bytearray()
 
-    # initalize the datatype to store the image as bytes (two bits per pixel)
-    img = bytearray( int(( 296 * 128 ) / 4) )
+    # load the template image
+    with Image.open("assets/status-disp-template.png") as im:
+        
+        pixels = im.load()
+        s = im.size
 
-    with Image.open("status-disp-idea.png") as im:
-        print(im.format, im.size, im.mode)
-        im.show()
+    # section left: build task overview
+    left(pixels)
+
+    # section middle: 
+    middle(pixels)
+
+    # section right: todays and tomorrows wheather
+    right(pixels)
+
+        
+    # convert to bitmap
+    img = imgToByte(pixels, s)
+
+    im.show()
 
 
     # ---------------------- Return image

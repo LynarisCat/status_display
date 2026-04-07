@@ -17,7 +17,16 @@ class RawResponse(Response):
 # functions for graphics
 
 def left(pixels: Image.core.PixelAccess):
-    pass
+
+    # create/cache data from notes (new file)
+
+    # get current months (month names, number of days, data form obsidian vault)
+
+    # construct datastructure from data + num of days
+
+    # place day images (./assets) from data
+
+    # place month names
 
 
 def middle(pixels: Image.core.PixelAccess):
@@ -25,8 +34,12 @@ def middle(pixels: Image.core.PixelAccess):
 
 
 def right(pixels: Image.core.PixelAccess):
-    pass
+    
+    # get wheather data (temp + clouds/rain)
 
+    # place temp
+
+    # place wheather symbol (sun, cloud, rain, thunder)
 
 
 
@@ -54,7 +67,7 @@ async def status():
     # convert to bitmap
     img = imgToByte(pixels, s)
 
-    im.show()
+    #im.show()
 
 
     # ---------------------- Return image

@@ -25,3 +25,7 @@ For the task tracker to work you need a folder with daily notes and sync them to
 
 1. copy and rename config.ini.example to config.ini
 2. configure the server in this file
+
+
+## Credit
+Font used: https://kottke.org/plus/type/silkscreen/

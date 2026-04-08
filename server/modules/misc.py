@@ -1,22 +1,22 @@
 import datetime
 import calendar
-from typing import Dict
+from typing import List
 
 
-def getLastMonths() -> Dict[str, int]:
+def getLastMonths() -> List[(str, int)]:
 
     today = datetime.date.today().replace(day=1)
-    ret = {}
+    ret = []
 
     for i in range(3):
-        last_day_of_prev = today - datetime.timedelta(days=1)
 
-        name = last_day_of_prev.strftime("%B")
-        days = calendar.monthrange(last_day_of_prev.year, last_day_of_prev.month)[1]
+        name = today.strftime("%B")
+        days = calendar.monthrange(today.year, today.month)[1]
 
-        ret[name] = days
+        ret.append((name, days))
 
-        today = last_day_of_prev.replace(day=1)
+        today = today - datetime.timedelta(days=1)
+        today = today.replace(day=1)
 
     return ret
 

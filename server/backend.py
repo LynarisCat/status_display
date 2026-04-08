@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Response
 from PIL import Image
 from .modules.convert import imgToByte
-from .modules.misc import getLastMonths
+from .modules.obsidian import getMonthData
 
 app = FastAPI()
 
@@ -20,11 +20,8 @@ class RawResponse(Response):
 def left(pixels: Image.core.PixelAccess):
 
     # create/cache data from notes (new file)
-
-    # get current months (month names, number of days)
-    months = getLastMonths()
-
-    # get data from obsidian valut (.md files)
+    daily_data = getMonthData()
+    print(daily_data)
 
     # construct datastructure from data + num of days
 

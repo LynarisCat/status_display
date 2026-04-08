@@ -16,3 +16,12 @@ The Esp wakes up every hour -> requests a new view via http -> the server collec
 `/esp32`: files to build the esp data<br>
 `/server`: all of the backend stuff where the veiws get requested and rendered<br>
 `/server/assets`: some assets for building the views<br>
+
+## Configuration
+`this section is not finished/complete`
+
+For the task tracker to work you need a folder with daily notes and sync them to your server which is serving the backend (I use the Obsidian note taking app and Syncthing for this). They have to be formated like YearMonthDay (e.g. 20261230 or 20260408). This folder is set in the config.ini
+
+
+1. copy and rename config.ini.example to config.ini
+2. configure the server in this file

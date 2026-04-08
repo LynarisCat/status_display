@@ -25,7 +25,7 @@ def countTags(file: str) -> int:
 
 
 # go through all relevant date files and collect the number of tags for each day
-def getMonthData() -> List[List[int]]:
+def getMonthData() -> List[(str, List[int])]:
     
     months = getLastMonths()
     today = datetime.date.today()
@@ -33,7 +33,11 @@ def getMonthData() -> List[List[int]]:
     num_of_days = sum(months[i][1] for i in range(3))
     num_of_days_no_data = months[0][1] - today.day
 
-    day_data = [[], [], []]
+    day_data = []
+
+    # construct day_data template
+    for i in range(3):
+        day_data.append( (months[i][0], []) )
 
     year = today.year
     month = today.month
@@ -41,14 +45,14 @@ def getMonthData() -> List[List[int]]:
 
     # fill future days with 0
     for i in range(num_of_days_no_data):
-        day_data[0].append(0)
+        day_data[0][1].append(0)
 
 
     for m in range(3):
 
         for d in range(day):
             file = obsidianPath+"/"+str(year)+str(month).zfill(2)+str(day-d).zfill(2)+".md"
-            day_data[m].append( countTags(file) )
+            day_data[m][1].append( countTags(file) )
 
         # finished after running for all months
         if m >= 2:

@@ -113,9 +113,6 @@ async def status():
 
     # load the template image
     with Image.open("assets/status-disp-template.png") as im:
-        
-        s = im.size
-
 
         # section left: build task overview
         left(im)
@@ -126,14 +123,16 @@ async def status():
         # section right: todays and tomorrows wheather
         right(im)
 
+        im = im.rotate(90, expand=True)
 
         pixels = im.load()
 
+        s = im.size
         
-    im.show()
     # convert to bitmap
     img = imgToByte(pixels, s)
 
+    #im.show()
 
 
     # ---------------------- Return image

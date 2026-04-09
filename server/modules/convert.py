@@ -38,7 +38,9 @@ def imgToByte(pix: Image.core.PixelAccess, size: (int, int)) -> bytearray:
         by += int(bit, 2).to_bytes(1, byteorder='big')
 
 
-    # print(len(by))
+    print("static const uint8_t image[] = {")
+    print(", ".join(f"0x{b:02X}" for b in by))
+    print("};")
 
     return by
 

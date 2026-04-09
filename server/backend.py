@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Response
 from PIL import Image, ImageFile, ImageDraw, ImageFont
-from .modules.convert import imgToByte
-from .modules.obsidian import getMonthData
+from modules.convert import imgToByte
+from modules.obsidian import getMonthData
 import math
 import os
 

@@ -3,6 +3,7 @@ from PIL import Image, ImageFile, ImageDraw, ImageFont
 from modules.convert import imgToByte
 from modules.obsidian import getMonthData
 import math
+import time
 import os
 
 
@@ -90,7 +91,16 @@ def left(image: ImageFile):
 
 
 def middle(image: ImageFile):
-    pass
+
+    draw = ImageDraw.Draw(image)
+    draw.fontmode = "1"
+
+    # time in center
+    t = time.localtime()
+    t_str = time.strftime("%H:%M", t)
+    _, _, w, h = draw.textbbox((0, 0), t_str, font=font)
+    pos = (130-w, 10)
+    draw.text(pos, t_str, fill="black", font=font)
 
 
 def right(image: ImageFile):

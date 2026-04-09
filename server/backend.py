@@ -32,7 +32,7 @@ def left(image: ImageFile):
     # TO-DO : CACHE DATA
     # create data from notes (new file)
     daily_data = getMonthData()
-    print(daily_data)
+    #print(daily_data)
 
     # place day images and month names (./assets) from data
     img_days = []
@@ -76,7 +76,7 @@ def left(image: ImageFile):
                 case default:
                     img_d = img_days[3]
 
-            print(daily_data[m][0], day, task_count, offset)
+            #print(daily_data[m][0], day, task_count, offset)
             image.paste(img_d, box=offset)
 
 

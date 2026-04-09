@@ -1,6 +1,10 @@
 from PIL import Image
 
 
+
+def closest(value):
+    return LEVELS[min(LEVELS.keys(), key=lambda k: abs(k - value))]
+
 def imgToByte(pix: Image.core.PixelAccess, size: (int, int)) -> bytearray:
     by = bytearray()
     c = 0
@@ -20,18 +24,15 @@ def imgToByte(pix: Image.core.PixelAccess, size: (int, int)) -> bytearray:
             match pix[x,y]:
                 case 0:
                     bit += "00"
-
                 case 64:
-                    bit += "10"
-
-                case 192:
                     bit += "01"
-    
+                case 192:
+                    bit += "10"
                 case 255:
                     bit += "11"
-
-                case default:
-                    pass
+                case _:
+                    print(f"unexpected pixel value: {pix[x,y]} at ({x},{y})")
+                    bit = "00" + bit
 
     if bit:
         bit = bit.ljust(8, "0")

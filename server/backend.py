@@ -97,9 +97,9 @@ def middle(image: ImageFile):
 
     # time in center
     t = time.localtime()
-    t_str = time.strftime("%H:%M", t)
+    t_str = time.strftime("%H : %M", t)
     _, _, w, h = draw.textbbox((0, 0), t_str, font=font)
-    pos = (130-w, 10)
+    pos = (130-w/2, 10)
     draw.text(pos, t_str, fill="black", font=font)
 
 

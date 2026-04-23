@@ -1,3 +1,6 @@
 pillow
 fastapi[standard]
 uvicorn
+openmeteo-requests
+requests-cache
+retry-requests

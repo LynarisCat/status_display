@@ -129,7 +129,7 @@ def right(image: ImageFile):
 
     # place wheather symbol (sun, cloud, rain, thunder)
   
-    image.paste(img_weather[weather[0]["cloud_code"]], box=(220, 30))
+    image.paste(img_weather[weather[0]["cloud_code"]], box=(220, 50))
 
     for img in img_weather:
         img.close()

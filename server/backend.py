@@ -123,13 +123,13 @@ def right(image: ImageFile):
     font = ImageFont.truetype(font_path, 21)
 
     pos = (209, 17)
-    draw.text(pos, str(weather[0]["temp"]), fill="black", font=font)
+    draw.text(pos, str(round(weather[0]["temp"], 1))+" °C", fill="black", font=font)
 
 
 
     # place wheather symbol (sun, cloud, rain, thunder)
   
-    image.paste(img_weather[weather[0]["cloud_code"]], box=(209, 30))
+    image.paste(img_weather[weather[0]["cloud_code"]], box=(220, 30))
 
     for img in img_weather:
         img.close()

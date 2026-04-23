@@ -11,7 +11,7 @@ import os
 
 
 current_dir = os.path.dirname(__file__)
-font_path = os.path.join(current_dir, "assets", "slkscr.ttf")
+font_path = os.path.join(current_dir, "assets", "slkscr_w_deg.ttf")
 font = ImageFont.truetype(font_path, 8)
 
 app = FastAPI()

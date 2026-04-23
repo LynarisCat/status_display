@@ -1,7 +1,10 @@
 from fastapi import FastAPI, Response
 from PIL import Image, ImageFile, ImageDraw, ImageFont
+
 from modules.convert import imgToByte
 from modules.obsidian import getMonthData
+from modules.weather import get_weather
+
 import math
 import time
 import os
@@ -106,12 +109,31 @@ def middle(image: ImageFile):
 def right(image: ImageFile):
     
     # get wheather data (temp + clouds/rain)
+    weather = get_weather()
 
+
+    img_weather = []
+    img_weather.append( Image.open("assets/sun.png") )
+    img_weather.append( Image.open("assets/cloud.png") )
+    img_weather.append( Image.open("assets/cloud_rain.png") )
+    
     # place temp
+    draw = ImageDraw.Draw(image)
+    draw.fontmode = "1"
+    font = ImageFont.truetype(font_path, 21)
+
+    pos = (209, 17)
+    draw.text(pos, str(weather[0]["temp"]), fill="black", font=font)
+
+
 
     # place wheather symbol (sun, cloud, rain, thunder)
+  
+    image.paste(img_weather[weather[0]["cloud_code"]], box=(240, 17))
 
-    pass
+    for img in img_weather:
+        img.close()
+
 
 # end of functions for graphics ----------------------------------------
 
